@@ -16,8 +16,8 @@ function Title(props) {
 export default function Home() {
   return (
     <div>
-      <Title heading={'Dynamic Title'}/>
-      <h1>Hello World</h1>
+      {/* <Title heading={'Dynamic Title'}/> */}
+      {/* <h1>Hello World</h1> */}
     </div>
   );
 }
