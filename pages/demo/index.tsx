@@ -1,4 +1,4 @@
-import styles from "../styles/demo.module.scss";
+import styles from "./styles.module.scss";
 
 export default function Demo(){
   return (
