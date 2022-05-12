@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Title(props) {
   return (
     <div>
@@ -16,8 +18,7 @@ function Title(props) {
 export default function Home() {
   return (
     <div>
-      {/* <Title heading={'Dynamic Title'}/> */}
-      {/* <h1>Hello World</h1> */}
+        <h2>Go to <Link href="/demo"> Demo </Link> </h2>
     </div>
   );
 }
