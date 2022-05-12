@@ -1,4 +1,6 @@
 import { useState } from "react";
+import jwt from 'jsonwebtoken'
+
 import styles from "./styles.module.scss";
 
 export default function Demo() {
@@ -6,6 +8,7 @@ export default function Demo() {
     username: "",
     password: "",
   });
+  const [message,setMessage] = useState<string>('You are not logged in');
 
   const { username, password } = inputs;
 
@@ -17,10 +20,10 @@ export default function Demo() {
     });
   };
 
-  const handleSubmit = (event) =>{
+  const handleSubmit = async (event) =>{
     event.preventDefault();
 
-    fetch('http://localhost:3000/api/hello',{
+    const result = await fetch('http://localhost:3000/api/hello',{
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
@@ -29,14 +32,23 @@ export default function Demo() {
         username : username,
         password : password
       })
-    }).then(response =>{
-      console.log(response.text);
-    })
+    }).then(response =>response.json())
+
+    const token = result.token
+    console.log(token);
+
+    if(token){
+      const json = jwt.decode(token) as {[key : string] : string};
+      setMessage(`Welcome ${json.username} and you are ${json.admin ? 'an admin':'not an admin'}`)
+    }else{
+      setMessage('Something went wrong')
+    }
+    
   }
   
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Hello</h1>
+      <h1 className={styles.title}>{message}</h1>
       <form onSubmit={handleSubmit}>
         <p>
           <input
