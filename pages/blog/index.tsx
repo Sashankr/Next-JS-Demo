@@ -1,5 +1,15 @@
-export default function Blog(){
-    return(
-        <h1>Welcome to my blog</h1>
-    )
+import { useRouter } from "next/router";
+
+export default function Blog() {
+  const router = useRouter();
+  const navigateHome = () =>{
+      router.replace('/')
+  }
+
+  return (
+    <>
+      <h1>Welcome to my blog{router.asPath}</h1>
+      <button onClick={navigateHome}>Go to home</button>
+    </>
+  );
 }
