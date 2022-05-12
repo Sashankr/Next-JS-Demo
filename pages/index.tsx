@@ -19,6 +19,7 @@ export default function Home() {
   return (
     <div>
         <h2>Go to <Link href="/demo"> Demo </Link> </h2>
+        <h2>Go to <Link href="/demo/profile"> Demo/Profile </Link> </h2>
     </div>
   );
 }
