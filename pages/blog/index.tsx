@@ -6,6 +6,9 @@ export default function Blog() {
       router.replace('/')
   }
 
+  console.log(router);
+  
+
   return (
     <>
       <h1>Welcome to my blog{router.asPath}</h1>
