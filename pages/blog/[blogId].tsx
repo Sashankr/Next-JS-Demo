@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  return {
+   return {
     props: {
       myNumber: Math.random(),
     },
