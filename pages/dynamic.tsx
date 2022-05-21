@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 export const getStaticProps : GetStaticProps = async (context) =>{
     return {
         props : {
+            revalidate : 20000,
             myNumber : 7
         }
     }
